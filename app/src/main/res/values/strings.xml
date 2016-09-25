@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NumberGuess</string>
+    <string name="pop">POP</string>
+    <string name="buttonOneString">1</string>
+    <string name="buttonTwoString">2</string>
+    <string name="buttonThreeString">3</string>
+    <string name="levelOneText" />
+
+</resources>
