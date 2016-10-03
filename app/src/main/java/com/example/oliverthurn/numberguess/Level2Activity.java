@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Created by oliverthurn on 9/27/16.
  */
-public class LevelTwo extends Activity implements View.OnClickListener {
+public class Level2Activity extends Activity implements View.OnClickListener {
 
     int answerPicked = 0;
     int randomNumber;
@@ -106,7 +106,7 @@ public class LevelTwo extends Activity implements View.OnClickListener {
 
     public void popUpToNextLevel(boolean go){
         if(go){
-            startActivity(new Intent(LevelTwo.this, popWindowLevelTwo.class));
+            startActivity(new Intent(Level2Activity.this, popWindowLevel2.class));
         }
     }
 

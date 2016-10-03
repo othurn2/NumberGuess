@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * Created by oliverthurn on 9/23/16.
  */
-public class LevelOne extends Activity implements View.OnClickListener{
+public class Level1Activity extends Activity implements View.OnClickListener{
 
     private boolean end = false;
     public int score;
@@ -79,7 +79,7 @@ public class LevelOne extends Activity implements View.OnClickListener{
 
     public void popUpToNextLevel(boolean go){
         if(go){
-            startActivity(new Intent(LevelOne.this, popWindow.class));
+            startActivity(new Intent(Level1Activity.this, popWindowLevel1.class));
         }
     }
 

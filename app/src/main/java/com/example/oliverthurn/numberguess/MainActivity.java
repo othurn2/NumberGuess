@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.playButton:
-                Intent startGame = new Intent(this,LevelOne.class);
+                Intent startGame = new Intent(this,Level1Activity.class);
                 //Intent playIntent = new Intent(this, PlayGameActivity.class);
                 startActivity(startGame);
                 break;

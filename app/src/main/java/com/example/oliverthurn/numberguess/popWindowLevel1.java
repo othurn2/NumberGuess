@@ -2,19 +2,16 @@ package com.example.oliverthurn.numberguess;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.TextView;
 
 /**
  * Created by oliverthurn on 9/23/16.
  */
 
-public class popWindow extends Activity {
+public class popWindowLevel1 extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class popWindow extends Activity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindow.this, LevelTwo.class));
+                startActivity(new Intent(popWindowLevel1.this, Level2Activity.class));
 
 
             }
@@ -57,7 +54,7 @@ public class popWindow extends Activity {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindow.this, MainActivity.class));
+                startActivity(new Intent(popWindowLevel1.this, MainActivity.class));
 
             }
         });

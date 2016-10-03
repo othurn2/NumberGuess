@@ -21,26 +21,26 @@
 
         </activity>
 
-        <activity android:name=".popWindow">
+        <activity android:name=".popWindowLevel1">
                 android:theme="@style/AppTheme.PopUpTheme"
             ></activity>
-        <activity android:name=".popWindowLevelTwo">
+        <activity android:name=".popWindowLevel2">
 
         </activity>
 
-        <activity android:name=".popWidowLevelThree">
+        <activity android:name=".popWindowLevel3">
 
         </activity>
 
-        <activity android:name=".LevelOne">
+        <activity android:name=".Level1Activity">
 
         </activity>
 
-        <activity android:name=".LevelTwo">
+        <activity android:name=".Level2Activity">
 
         </activity>
 
-        <activity android:name=".LevelThree">
+        <activity android:name=".Level3Activity">
 
         </activity>
 

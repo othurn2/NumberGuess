@@ -11,7 +11,7 @@ import android.widget.TextView;
 /**
  * Created by oliverthurn on 9/27/16.
  */
-public class popWindowLevelTwo extends Activity implements View.OnClickListener {
+public class popWindowLevel2 extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class popWindowLevelTwo extends Activity implements View.OnClickListener 
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindowLevelTwo.this, LevelThree.class));
+                startActivity(new Intent(popWindowLevel2.this, Level3Activity.class));
 
             }
         });
@@ -60,7 +60,7 @@ public class popWindowLevelTwo extends Activity implements View.OnClickListener 
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindowLevelTwo.this, MainActivity.class));
+                startActivity(new Intent(popWindowLevel2.this, MainActivity.class));
 
             }
         });

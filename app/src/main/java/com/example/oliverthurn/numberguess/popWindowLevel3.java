@@ -10,7 +10,7 @@ import android.widget.Button;
 /**
  * Created by oliverthurn on 10/2/16.
  */
-public class popWidowLevelThree extends Activity implements View.OnClickListener {
+public class popWindowLevel3 extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class popWidowLevelThree extends Activity implements View.OnClickListener
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWidowLevelThree.this, HighScoreActivity.class));
+                startActivity(new Intent(popWindowLevel3.this, HighScoreActivity.class));
             }
         }
         );
@@ -56,7 +56,7 @@ public class popWidowLevelThree extends Activity implements View.OnClickListener
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWidowLevelThree.this, MainActivity.class));
+                startActivity(new Intent(popWindowLevel3.this, MainActivity.class));
 
             }
         });
