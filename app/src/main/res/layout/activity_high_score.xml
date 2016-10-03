@@ -35,11 +35,52 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal" />
 
-        <ListView
+        <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/highScoreList"
-            android:layout_gravity="center_horizontal" />
+            android:layout_height="74dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="Name"
+                android:id="@+id/highScoreNameView"
+                android:layout_row="0"
+                android:layout_column="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="@string/enterHighScoreName"
+                android:ems="10"
+                android:id="@+id/playerNameTextEdit"
+                android:layout_row="0"
+                android:layout_column="4" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                android:id="@+id/savePlayerNameButton"
+                android:layout_row="0"
+                android:layout_column="6" />
+        </GridLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/scrollView"
+            android:layout_gravity="center_horizontal"
+            android:fillViewport="false">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/highScoreTable" />
+        </ScrollView>
 
     </LinearLayout>
 </RelativeLayout>

@@ -2,29 +2,29 @@ package com.example.oliverthurn.numberguess;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
-import android.widget.TextView;
 
 /**
- * Created by oliverthurn on 9/23/16.
+ * Created by oliverthurn on 10/2/16.
  */
-
-public class popWindow extends Activity {
+public class popWidowLevelThree extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createPopUpWindow();
+    }
+
+    @Override
+    public void onClick(View v) {
 
     }
 
     /* Method to create popUpWindow that is half the size of the parent window */
-    public void createPopUpWindow(){
+    public void createPopUpWindow() {
 
         /* Creating the window its self */
         setContentView(R.layout.popwindow);
@@ -35,29 +35,28 @@ public class popWindow extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width * .5), (int) (height * .5));
-
+        getWindow().setLayout((int) (width * .5), (int) (height * .5));
 
         /* Creating next button and adding functionality*/
-        Button nextButton = (Button)findViewById(R.id.nextButtonPop);
-        nextButton.setOnClickListener(new View.OnClickListener(){
+        Button nextButton = (Button) findViewById(R.id.nextButtonPop);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindow.this, LevelTwo.class));
-
-
+                startActivity(new Intent(popWidowLevelThree.this, HighScoreActivity.class));
             }
-        });
+        }
+        );
 
         /* Creating quit button and adding functionality */
 
-        Button quitButton = (Button)findViewById(R.id.quitButtonPop);
-        quitButton.setOnClickListener(new View.OnClickListener(){
+        Button quitButton = (Button) findViewById(R.id.quitButtonPop);
+        quitButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(popWindow.this, MainActivity.class));
+                startActivity(new Intent(popWidowLevelThree.this, MainActivity.class));
 
             }
         });

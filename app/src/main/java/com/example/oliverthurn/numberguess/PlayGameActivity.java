@@ -20,8 +20,6 @@ public class PlayGameActivity extends AppCompatActivity implements View.OnClickL
         popUpButton = (Button)findViewById(R.id.popUpButton);
         popUpButton.setOnClickListener(this);
 
-        //levelOne();
-
     }
 
     @Override

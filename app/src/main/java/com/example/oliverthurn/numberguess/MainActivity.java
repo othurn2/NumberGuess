@@ -5,14 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     /* Creating objects for buttons and view on main activity */
     protected Button playButton;
     protected Button highScoreButton;
-    protected TextView highScoreView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +25,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         highScoreButton = (Button)findViewById(R.id.highScoreButton);
         highScoreButton.setOnClickListener(this);
 
-        highScoreView = (TextView)findViewById(R.id.highScoreTextView);
-
     }
 
     @Override
@@ -38,8 +34,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
 
             case R.id.playButton:
-                Intent playIntent = new Intent(this, PlayGameActivity.class);
-                startActivity(playIntent);
+                Intent startGame = new Intent(this,LevelOne.class);
+                //Intent playIntent = new Intent(this, PlayGameActivity.class);
+                startActivity(startGame);
                 break;
 
             case R.id.highScoreButton:

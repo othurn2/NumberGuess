@@ -3,12 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="#5b5b5b"
-    tools:context=".LevelOne">
+    tools:context=".LevelTwo">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:src="@mipmap/questionmark300px" />
@@ -17,38 +17,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Guess a number between 1 and 3"
-        android:id="@+id/levelOneGuessText"
-        android:layout_below="@+id/imageView2"
+        android:text="Guess a number between 1 and 6"
+        android:id="@+id/guessViewLevelTwo"
+        android:layout_below="@+id/imageView3"
         android:layout_centerHorizontal="true"
-        android:textColor="#ffffff"
         android:textAlignment="center"
+        android:textColor="#ffffff"
         android:textSize="50dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        android:id="@+id/oneButtonLevelOne"
-        android:layout_below="@+id/levelOneGuessText"
+        android:id="@+id/oneButtonLevelTwo"
+        android:layout_below="@+id/guessViewLevelTwo"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2"
-        android:id="@+id/twoButtonLevelOne"
-        android:layout_alignTop="@+id/oneButtonLevelOne"
+        android:id="@+id/twoButtonLevelTwo"
+        android:layout_below="@+id/guessViewLevelTwo"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="3"
-        android:id="@+id/threeButtonLevelOne"
-        android:layout_alignTop="@+id/twoButtonLevelOne"
+        android:id="@+id/threeButtonLevelTwo"
+        android:layout_below="@+id/guessViewLevelTwo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4"
+        android:id="@+id/fourButtonLevelTwo"
+        android:layout_below="@+id/oneButtonLevelTwo"
+        android:layout_alignRight="@+id/oneButtonLevelTwo"
+        android:layout_alignEnd="@+id/oneButtonLevelTwo" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/fiveButtonLevelTwo"
+        android:layout_below="@+id/twoButtonLevelTwo"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6"
+        android:id="@+id/sixButtonLevelTwo"
+        android:layout_below="@+id/twoButtonLevelTwo"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -57,10 +82,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="HighScore:"
-        android:id="@+id/highScoreViewLevelone"
+        android:id="@+id/highScoreViewLevelTwo"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textColor="#ffffff" />
-
 </RelativeLayout>
