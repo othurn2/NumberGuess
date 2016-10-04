@@ -1,6 +1,7 @@
 package com.example.oliverthurn.numberguess;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,10 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     /* Creating objects for buttons and view on main activity */
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
+    String highScoreToString;
+    String nothing = "Nothing";
     protected Button playButton;
     protected Button highScoreButton;
 
@@ -18,12 +23,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Setting those objects and click listeners. The View is no active */
+        /* Setting those objects and click listeners.*/
         playButton = (Button)findViewById(R.id.playButton);
         playButton.setOnClickListener(this);
 
         highScoreButton = (Button)findViewById(R.id.highScoreButton);
         highScoreButton.setOnClickListener(this);
+
+        highScoreToString = "" + Level1Activity.score;
+        preferences = getSharedPreferences(nothing, MODE_PRIVATE);
+        editor = preferences.edit();
 
     }
 

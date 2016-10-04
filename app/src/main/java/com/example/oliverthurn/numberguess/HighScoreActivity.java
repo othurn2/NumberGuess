@@ -1,12 +1,11 @@
 package com.example.oliverthurn.numberguess;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +14,8 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
-
 import java.util.ArrayList;
 
 /**
@@ -28,10 +25,10 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
 
     protected TableLayout highScoreTable;
-    protected EditText playersNameEditText;
-    protected Button highScoreSaveButton;
     public ArrayList<String> highScoreList = new ArrayList<>();
     public String playerName;
+    protected Button exitButton;
+    public HighScoreList finalScoreList;
 
 
 
@@ -41,43 +38,25 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
         setContentView(R.layout.activity_high_score);
         highScoreTable = (TableLayout)findViewById(R.id.highScoreTable);
-        playersNameEditText = (EditText)findViewById(R.id.playerNameTextEdit);
-        highScoreSaveButton = (Button)findViewById(R.id.savePlayerNameButton);
-        highScoreSaveButton.setOnClickListener(this);
 
-        playerName = getResources().getString(R.string.enterHighScoreName);
-
-        //getPlayername();
-
-        addNameToHighScoreList(highScoreList, playerName);
+        highScoreList = turnHighScoreListIntoArrayList(HighScorePopWindow.playerList);
+        exitButton = (Button)findViewById(R.id.exitButton);
+        exitButton.setText("exit");
+        exitButton.setOnClickListener(this);
 
         setStringArrayPref(this, playerName, highScoreList);
 
-        displayHighScoreListInTable();
+        ArrayList<String> blank = getStringArrayPref(this, playerName);
 
+        displayHighScoreListInTable(blank);
 
-        for( int i = 0; i < highScoreList.size(); i++){
-            Log.i("HighScore: ", "" + highScoreList.get(i));
-        }
-
-
+        //displayHighScoreListInTable(HighScorePopWindow.playerList);
 
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.savePlayerNameButton:
-                getPlayername();
-
-                addNameToHighScoreList(highScoreList, playerName);
-
-                setStringArrayPref(this, playerName, highScoreList);
-
-                break;
-            default:
-                break;
-        }
+        startActivity(new Intent(HighScoreActivity.this, MainActivity.class));
     }
 
     public void addNameToHighScoreList(ArrayList<String> highscore, String name){
@@ -85,9 +64,9 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
         highscore.add(name);
     }
 
-    public void displayHighScoreListInTable(){
+    public void displayHighScoreListInTable(HighScoreList scoreList){
 
-        for(int i = 0; i < highScoreList.size(); i++){
+        for(int i = 0; i < scoreList.list.size(); i++){
 
             TextView name = new TextView(this);
             name.setTextSize(20);
@@ -97,12 +76,31 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
             score.setTextSize(20);
             score.setTextColor(Color.rgb(255,255,255));
 
+            TableRow row = new TableRow(this);
 
+            name.setText(scoreList.list.get(i));
+            row.addView(name);
+            highScoreTable.addView(row);
+
+        }
+
+    }
+
+    public void displayHighScoreListInTable(ArrayList<String> scoreList){
+
+        for(int i = 0; i < scoreList.size(); i++){
+
+            TextView name = new TextView(this);
+            name.setTextSize(20);
+            name.setTextColor(Color.rgb(255,255,255));
+
+            TextView score = new TextView(this);
+            score.setTextSize(20);
+            score.setTextColor(Color.rgb(255,255,255));
 
             TableRow row = new TableRow(this);
 
-
-            name.setText(highScoreList.get(i));
+            name.setText(scoreList.get(i));
             row.addView(name);
             highScoreTable.addView(row);
 
@@ -145,11 +143,16 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
         return highScores;
     }
 
+    public ArrayList<String> turnHighScoreListIntoArrayList(HighScoreList highScoreList){
 
-    public void getPlayername(){
+        ArrayList<String> toReturn = new ArrayList<>();
 
-        playerName = playersNameEditText.getText().toString();
+        for (int i = 0; i < highScoreList.list.size(); i++){
+            String replace = highScoreList.list.get(i);
+            toReturn.add(i, replace);
+        }
+
+        return toReturn;
     }
-
 
 }

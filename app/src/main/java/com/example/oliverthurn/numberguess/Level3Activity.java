@@ -121,7 +121,7 @@ public class Level3Activity extends Activity implements View.OnClickListener {
 
     public void popUpToNextLevel(boolean go){
         if(go){
-            startActivity(new Intent(Level3Activity.this, popWindowLevel3.class));
+            startActivity(new Intent(Level3Activity.this, HighScorePopWindow.class));
         }
     }
 
@@ -131,11 +131,11 @@ public class Level3Activity extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Wrong, try again", Toast.LENGTH_SHORT).show();
         } else {
             //Toast.makeText(getApplicationContext(), "YEWWWW", Toast.LENGTH_LONG).show();
-            score = 10 - clickCounter;
-            highScoreView.setText("HighScore: " + ((HighScore) this.getApplication()).getScore());
+            Level1Activity.score += (10 - clickCounter);
+            highScoreView.setText("HighScore: " + Level1Activity.score);
             gameOver = true;
         }
-        ((HighScore) this.getApplication()).addToScore(score);
+        //((HighScore) this.getApplication()).addToScore(score);
         Log.i("GameHighScore: ", "" + ((HighScore) this.getApplication()).getScore());
         popUpToNextLevel(gameOver);
 

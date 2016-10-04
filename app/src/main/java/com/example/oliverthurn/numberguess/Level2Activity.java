@@ -116,7 +116,7 @@ public class Level2Activity extends Activity implements View.OnClickListener {
             Toast.makeText(getApplicationContext(), "Wrong, try again", Toast.LENGTH_SHORT).show();
         } else {
             //Toast.makeText(getApplicationContext(), "YEWWWW", Toast.LENGTH_LONG).show();
-            score = 7 - clickCounter;
+            Level1Activity.score += (7 - clickCounter);
             highScoreView.setText("HighScore: " +((HighScore) this.getApplication()).getScore());
             gameOver = true;
         }

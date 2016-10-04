@@ -17,7 +17,7 @@ import java.util.Random;
 public class Level1Activity extends Activity implements View.OnClickListener{
 
     private boolean end = false;
-    public int score;
+    public static int score;
     protected int clickCounter;
     protected int answerPicked = 0;
     int randomNum;
@@ -93,7 +93,7 @@ public class Level1Activity extends Activity implements View.OnClickListener{
                 textViewLevelOne.setText("HighScore: " + score);
                 gameOver = true;
             }
-        ((HighScore) this.getApplication()).setScore(score);
+        //((HighScore) this.getApplication()).setScore(score);
         popUpToNextLevel(gameOver);
 
     }

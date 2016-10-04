@@ -7,4 +7,10 @@
     <string name="levelOneText" />
     <string name="enterHighScoreName">""</string>
 
+    /* highscorePopWindow */
+    <string name="highscorePopTitleText">Congratulations you have a High Score!!</string>
+    <string name="highscorePopScoreText">HighScore</string>
+    <string name="highscorePopNameText">Enter your name</string>
+    <string name="highscorePopSaveButton">Save</string>
+
 </resources>

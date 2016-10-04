@@ -35,38 +35,15 @@
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal" />
 
-        <GridLayout
+        <Button
             android:layout_width="match_parent"
-            android:layout_height="74dp">
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/exitButton" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="Name"
-                android:id="@+id/highScoreNameView"
-                android:layout_row="0"
-                android:layout_column="0" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:text="@string/enterHighScoreName"
-                android:ems="10"
-                android:id="@+id/playerNameTextEdit"
-                android:layout_row="0"
-                android:layout_column="4" />
-
-            <Button
-                style="?android:attr/buttonStyleSmall"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Save"
-                android:id="@+id/savePlayerNameButton"
-                android:layout_row="0"
-                android:layout_column="6" />
-        </GridLayout>
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20px" />
 
         <ScrollView
             android:layout_width="match_parent"

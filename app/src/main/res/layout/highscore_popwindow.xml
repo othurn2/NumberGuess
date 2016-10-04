@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#bc5c2a"
+    tools:context=".HighScorePopWindow">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/highscorePopTitleText"
+        android:id="@+id/highscorePopTitleText"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:textSize="40dp"
+        android:textAlignment="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/highscorePopScoreText"
+        android:id="@+id/highscorePopScoreText"
+        android:textColor="#ffffff"
+        android:textSize="30sp"
+        android:layout_below="@+id/highscorePopTitleText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/highscorePopNameText"
+        android:id="@+id/highscorePopEnterNameText"
+        android:layout_below="@+id/highscorePopScoreText"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"
+        android:textColor="#ffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/highscorePopNameText"
+        android:layout_below="@+id/highscorePopEnterNameText"
+        android:layout_alignLeft="@+id/highscorePopScoreText"
+        android:layout_alignStart="@+id/highscorePopScoreText"
+        android:layout_alignRight="@+id/highscorePopEnterNameText"
+        android:layout_alignEnd="@+id/highscorePopEnterNameText"
+        android:lines="1"
+        android:inputType="text"
+        android:background="@android:color/darker_gray"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:id="@+id/highscorePopSaveButton"
+        android:layout_below="@+id/highscorePopNameText"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
