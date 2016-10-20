@@ -2,6 +2,7 @@ package com.example.oliverthurn.numberguess;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Method;
 import java.util.Random;
+import java.util.logging.Level;
 
 /**
  * Created by oliverthurn on 9/27/16.
@@ -19,8 +22,11 @@ public class Level2Activity extends Activity implements View.OnClickListener {
     int answerPicked = 0;
     int randomNumber;
     int clickCounter = 0;
-    int score;
+    public static int score;
+    String highScoreString;
     private boolean end = false;
+
+
 
     TextView highScoreView;
 
@@ -65,37 +71,37 @@ public class Level2Activity extends Activity implements View.OnClickListener {
             case R.id.oneButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 1;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, oneButton);
                 break;
 
             case R.id.twoButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 2;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, twoButton);
                 break;
 
             case R.id.threeButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 3;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, threeButton);
                 break;
 
             case R.id.fourButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 4;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, fourButton);
                 break;
 
             case R.id.fiveButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 5;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, fiveButton);
                 break;
 
             case R.id.sixButtonLevelTwo:
                 clickCounter++;
                 answerPicked = 6;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, sixButton);
                 break;
 
             default:
@@ -110,17 +116,21 @@ public class Level2Activity extends Activity implements View.OnClickListener {
         }
     }
 
-    public void checkAnswer(int randomNum, boolean gameOver){
+    public void checkAnswer(int randomNum, boolean gameOver, Button button){
 
         if (answerPicked != randomNum){
             Toast.makeText(getApplicationContext(), "Wrong, try again", Toast.LENGTH_SHORT).show();
+            Methods.changeButtonColorRed(button);
         } else {
-            //Toast.makeText(getApplicationContext(), "YEWWWW", Toast.LENGTH_LONG).show();
-            Level1Activity.score += (7 - clickCounter);
-            highScoreView.setText("HighScore: " +((HighScore) this.getApplication()).getScore());
+            Methods.changeButtonGreen(button);
+            score = Level1Activity.score + (7 - clickCounter);
+            Log.i("HighScore 2", "" + score);
+
+            highScoreString = "" + score;
+            highScoreView.setText(highScoreString);
             gameOver = true;
         }
-        ((HighScore) this.getApplication()).addToScore(score);
+        Level1Activity.saveHighScore(highScoreString, score);
         popUpToNextLevel(gameOver);
 
     }
@@ -131,4 +141,7 @@ public class Level2Activity extends Activity implements View.OnClickListener {
         return random;
 
     }
+
+
+
 }

@@ -25,6 +25,7 @@ public class popWindowLevel1 extends Activity {
 
         /* Creating the window its self */
         setContentView(R.layout.popwindow);
+        setTheme(R.style.AppTheme_PopUpTheme);
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);

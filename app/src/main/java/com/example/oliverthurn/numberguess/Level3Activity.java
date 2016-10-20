@@ -20,6 +20,7 @@ public class Level3Activity extends Activity implements View.OnClickListener {
     int randomNumber;
     int clickCounter = 0;
     int score;
+    String highScoreString;
     private boolean end = false;
 
     TextView highScoreView;
@@ -73,70 +74,72 @@ public class Level3Activity extends Activity implements View.OnClickListener {
             case R.id.oneButtonLevelThree:
                 answerPicked = 1;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, oneButton);
                 break;
             case R.id.twoButtonLevelThree:
                 answerPicked = 2;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, twoButton);
                 break;
             case R.id.threeButtonLevelThree:
                 answerPicked = 3;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, threeButton);
                 break;
             case R.id.fourButtonLevelThree:
                 answerPicked = 4;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, fourButton);
                 break;
             case R.id.fiveButtonLevelThree:
                 answerPicked = 5;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, fiveButton);
                 break;
             case R.id.sixButtonLevelThree:
                 answerPicked = 6;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, sixButton);
                 break;
 
             case R.id.sevenButtonLevelThree:
                 answerPicked = 7;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, sevenButton);
                 break;
             case R.id.eightButtonLevelThree:
                 answerPicked = 8;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, eightButton);
                 break;
             case R.id.nineButtonLevelThree:
                 answerPicked = 9;
                 clickCounter++;
-                checkAnswer(randomNumber, end);
+                checkAnswer(randomNumber, end, nineButton);
                 break;
         }
     }
 
     public void popUpToNextLevel(boolean go){
         if(go){
-            startActivity(new Intent(Level3Activity.this, HighScorePopWindow.class));
+            startActivity(new Intent(Level3Activity.this, popWindowLevel3.class));
         }
     }
 
-    public void checkAnswer(int randomNum, boolean gameOver){
+    public void checkAnswer(int randomNum, boolean gameOver, Button button){
 
         if (answerPicked != randomNum){
             Toast.makeText(getApplicationContext(), "Wrong, try again", Toast.LENGTH_SHORT).show();
+            Methods.changeButtonColorRed(button);
         } else {
-            //Toast.makeText(getApplicationContext(), "YEWWWW", Toast.LENGTH_LONG).show();
-            Level1Activity.score += (10 - clickCounter);
-            highScoreView.setText("HighScore: " + Level1Activity.score);
+            Methods.changeButtonGreen(button);
+            score = Level2Activity.score + (10 - clickCounter);
+            Log.i("HighScore 3", "" + score);
+            highScoreString = "" + score;
+            highScoreView.setText(highScoreString);
             gameOver = true;
         }
-        //((HighScore) this.getApplication()).addToScore(score);
-        Log.i("GameHighScore: ", "" + ((HighScore) this.getApplication()).getScore());
+        Level1Activity.saveHighScore(highScoreString,score);
         popUpToNextLevel(gameOver);
 
     }
@@ -146,5 +149,6 @@ public class Level3Activity extends Activity implements View.OnClickListener {
         int randomNum = rand.nextInt(size) + 1;
         return randomNum;
     }
+
 
 }

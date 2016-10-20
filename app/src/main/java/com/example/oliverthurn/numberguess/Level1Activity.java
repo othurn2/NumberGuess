@@ -1,6 +1,7 @@
 package com.example.oliverthurn.numberguess;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +22,7 @@ public class Level1Activity extends Activity implements View.OnClickListener{
     protected int clickCounter;
     protected int answerPicked = 0;
     int randomNum;
+    String scoreAsString = "";
 
     protected Button oneButtonLevelOne;
     protected Button twoButtonLevelOne;
@@ -56,20 +58,17 @@ public class Level1Activity extends Activity implements View.OnClickListener{
             case R.id.oneButtonLevelOne:
                 clickCounter++;
                 answerPicked = 1;
-                checkAnswer(randomNum, end);
-                //popUpToNextLevel(end);
+                checkAnswer(randomNum, end,oneButtonLevelOne);
                 break;
             case R.id.twoButtonLevelOne:
                 answerPicked = 2;
                 clickCounter++;
-                checkAnswer(randomNum, end);
-                //popUpToNextLevel(end);
+                checkAnswer(randomNum, end, twoButtonLevelOne);
                 break;
             case R.id.threeButtonLevelOne:
                 answerPicked = 3;
                 clickCounter++;
-                checkAnswer(randomNum, end);
-                //popUpToNextLevel(end);
+                checkAnswer(randomNum, end, threeButtonLevelOne);
                 break;
             default:
                 break;
@@ -83,17 +82,20 @@ public class Level1Activity extends Activity implements View.OnClickListener{
         }
     }
 
-    public void checkAnswer(int randomNum, boolean gameOver){
+    public void checkAnswer(int randomNum, boolean gameOver, Button button){
 
             if (answerPicked != randomNum){
                 Toast.makeText(getApplicationContext(), "Wrong, try again", Toast.LENGTH_SHORT).show();
+                Methods.changeButtonColorRed(button);
             } else {
-                //Toast.makeText(getApplicationContext(), "YEWWWW", Toast.LENGTH_LONG).show();
+                Methods.changeButtonGreen(button);
                 score = 4 - clickCounter;
-                textViewLevelOne.setText("HighScore: " + score);
+                Log.i("HighScore 3", "" + score);
+                scoreAsString = "" + score;
+                textViewLevelOne.setText(scoreAsString);
                 gameOver = true;
             }
-        //((HighScore) this.getApplication()).setScore(score);
+        saveHighScore(scoreAsString, score);
         popUpToNextLevel(gameOver);
 
     }
@@ -104,6 +106,18 @@ public class Level1Activity extends Activity implements View.OnClickListener{
         return randomNum;
     }
 
+    public static void saveHighScore(String score, int check){
+
+        String checker = MainActivity.preferences.getString(MainActivity.dataName, MainActivity.savedHighScore);
+        int c = Integer.parseInt(checker);
+
+        if (check > c) {
+            MainActivity.editor.putString(MainActivity.dataName, score);
+            MainActivity.editor.commit();
+        } else {
+            Log.i("saveScoreMethod: ", "Score was less");
+        }
+    }
 
 
 }
